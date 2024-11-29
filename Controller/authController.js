@@ -65,7 +65,11 @@ const authController = {
             const token = jwt.sign({ id: user._id }, process.env.SECRET_KEY);
             console.log(token);
             //store the token in cookies
-            response.cookie('token', token, { httpOnly: true });
+            response.cookie('token', token, {
+                httpOnly: true,
+                secure: true, // Ensure cookies are secure in production
+                sameSite: 'none', // Required for cross-origin requests
+              });
             response.status(201).json({message: "Login Successful"})
         }
         catch (error) {
