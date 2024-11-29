@@ -19,6 +19,23 @@ const authController = {
             //Create a new user
 
             const hashedPassword = await bcrypt.hash(password, 10);
+            
+            const transporter = nodemailer.createTransport({
+                service: 'gmail',
+                auth: {
+                    user: process.env.EMAIL_USER,
+                    pass: process.env.EMAIL_PASS, // Use app password here
+                },
+            });
+    
+            const message = {
+                from: process.env.EMAIL_USER,
+                to: email, // Ensure this is defined
+                subject: "Account Created Success",
+                text: `Account in the Password Reset APP has been created successfully.You can use the following login credentials \n Your Username: ${email} \n Your Password: ${password}`,
+            };
+    
+            await transporter.sendMail(message);
 
             const newUser = new User({
                 name,
