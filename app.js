@@ -18,15 +18,39 @@ app.use(bodyParser.json());
 //     })
 //   );
 
+const allowedOrigins = ['http://localhost:5173', 'https://yourfrontend.com'];
+
+app.use((req, res, next) => {
+    const origin = req.headers.origin;
+
+    if (allowedOrigins.includes(origin)) {
+        res.setHeader('Access-Control-Allow-Origin', origin);
+        res.setHeader('Access-Control-Allow-Credentials', 'true');
+    } else if (!origin) {
+        // Allow requests from tools like Postman
+        res.setHeader('Access-Control-Allow-Origin', '*');
+    }
+
+    res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, OPTIONS');
+    res.setHeader(
+        'Access-Control-Allow-Headers',
+        'Origin, X-Requested-With, Content-Type, Accept, Authorization'
+    );
+
+    if (req.method === 'OPTIONS') {
+        return res.sendStatus(204); // Respond to preflight requests
+    }
+
+    next();
+});
 
 
-
-app.use(
-  cors({
-      origin: '*', // Use the deployed frontend URL for production
-      credentials: true,
-  })
-);
+// app.use(
+//   cors({
+//       origin: '*', // Use the deployed frontend URL for production
+//       credentials: true,
+//   })
+// );
 
   
   
