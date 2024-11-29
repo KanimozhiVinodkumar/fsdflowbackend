@@ -94,8 +94,12 @@ const authController = {
     logout: async (request, response) => {
         try {
             //clear the cookie
-            await response.clearCookie('token');
-            response.status(200).json({ message: 'Logout Successfull' })
+            response.clearCookie('token', {
+                httpOnly: true,
+                secure: true, // Same as the one used when setting the cookie
+                sameSite: 'none', // Same as the one used when setting the cookie
+              });
+              response.status(200).json({ message: 'Logout Successful' });
 
         }
         catch (error) {
