@@ -21,15 +21,13 @@ app.use(bodyParser.json());
 
 
 
-  app.use(
-    cors({
-      origin: (origin, callback) => {
-        // Allow all origins dynamically
-        callback(null, origin || '*');
-      },
-      credentials: true, // Allow cookies and credentials
-    })
-  );
+app.use(
+  cors({
+      origin: '*', // Use the deployed frontend URL for production
+      credentials: true,
+  })
+);
+
   
   
 // app.use(cors());
