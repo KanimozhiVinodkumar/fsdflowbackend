@@ -18,7 +18,7 @@ app.use(bodyParser.json());
 //     })
 //   );
 
-const allowedOrigins = ['http://localhost:5173', 'https://yourfrontend.com'];
+const allowedOrigins = ['http://localhost:5173', 'https://passwordresetflowapp.netlify.app'];
 
 
 
