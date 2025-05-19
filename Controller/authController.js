@@ -7,7 +7,7 @@ require('dotenv').config();
 
 
 
-
+//auth
 const authController = {
     register: async (request, response) => {
         try {

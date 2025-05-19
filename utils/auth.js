@@ -1,6 +1,6 @@
 const jwt=require('jsonwebtoken');
 require('dotenv').config();
-
+//auth app
 const auth = {
     isAuthenticate: (request, response,next) => {
         try {

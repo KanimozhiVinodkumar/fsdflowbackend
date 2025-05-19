@@ -1,7 +1,7 @@
 const express= require('express');
 const authController = require('../Controller/authController');
 const auth = require('../utils/auth');
-
+//authroutes
 const authRouter = express.Router();
 
 //Public Routes
