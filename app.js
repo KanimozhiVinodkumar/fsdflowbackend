@@ -8,6 +8,10 @@ const nodemailer = require('nodemailer');
 
 //creating Express Application
 const app=express();
+
+
+
+
 app.use(bodyParser.json());
 
 // Add middleware to parse JSON
