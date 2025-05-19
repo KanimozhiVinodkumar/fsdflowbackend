@@ -4,8 +4,7 @@ This is a BackEnd repo consists Password Reset Flow App Using Node JS [MERN].
 ## Render Deployment URL
 
 I have attached the link for the Base URL of the Deployment. Along with the link use routes to generate the API Calls.
-[BackendBaseURL](https://passwordresetflowfsdbackend.onrender.com)
-
+[BackendBaseURL](https://passwordresetflowfsdbackend.onrender.com/api/v1/auth/home)
 ## Postman Documentation URL
 [Postman Documentation URL:](https://documenter.getpostman.com/view/38692959/2sAYBXDC7E)
 
